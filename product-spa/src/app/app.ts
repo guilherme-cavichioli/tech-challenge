@@ -3,13 +3,19 @@ import { Product } from './product/product';
 import { PaymentMethod } from './payment-method/payment-method';
 import { CardContainer } from './shared/card-container/card-container';
 import { Seller } from './seller/seller';
-import { ShoppingCart } from "./shopping-cart/shopping-cart";
-import { Header } from "./header/header";
-
+import { ShoppingCart } from './shopping-cart/shopping-cart';
+import { Header } from './header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [Product, PaymentMethod, CardContainer, Seller, ShoppingCart, Header],
+  imports: [
+    Product,
+    PaymentMethod,
+    CardContainer,
+    Seller,
+    ShoppingCart,
+    Header,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -18,7 +24,8 @@ export class App {
 
   product = {
     title: 'Apple iPhone 16 (128 GB)',
-    description: 'iPhone 16 is built for Apple Intelligence and features the power of the A18 chip*. Capture stunning photos with the 48MP Fusion camera. And enjoy more time for texting, browsing, and more with its super-charged battery.',
+    description:
+      'iPhone 16 is built for Apple Intelligence and features the power of the A18 chip*. Capture stunning photos with the 48MP Fusion camera. And enjoy more time for texting, browsing, and more with its super-charged battery.',
     features: {
       Display: '6.1 inch AMOLED',
       Battery: '5000mAh',
@@ -27,7 +34,7 @@ export class App {
     },
     resources: [
       { url: 'iphone-cover.jpg', isCover: true },
-      { url: 'iphone-back.jpg', isCover: false },
+      { url: 'https://raw.githubusercontent.com/guilherme-cavichioli/tech-challenge/refs/heads/main/fake-storage/resources/product/iphone-back.jpg', isCover: false },
       { url: 'iphone-03.jpg', isCover: false },
       { url: 'iphone-04.jpg', isCover: false },
     ],
@@ -40,21 +47,23 @@ export class App {
       resource: {
         url: 'apple-banner.png',
       },
+      paymentMethods: [
+        {
+          type: 'PIX',
+          friendlyName: 'Pix',
+          resources: [{ url: 'pix-logo.png' }],
+        },
+        {
+          type: "CREDIT_CARD",
+          friendlyName: 'Credit Card',
+          resources: [{ url: 'visa-logo.png' }, { url: 'mastercard-logo.png' }],
+        },
+        {
+          type: 'MERCADO_PAGO',
+          friendlyName: 'Mercado Pago',
+          resources: [{ url: 'mercado-pago-logo.png' }],
+        },
+      ],
     },
   };
-
-  paymentMethods = [
-    {
-      type: 'Pix',
-      resources: [{ url: 'pix-logo.png' }],
-    },
-    {
-      type: 'Credit Card',
-      resources: [{ url: 'visa-logo.png' }, { url: 'mastercard-logo.png' }],
-    },
-    {
-      type: 'Mercado Pago',
-      resources: [{ url: 'mercado-pago-logo.png' }],
-    },
-  ];
 }

@@ -6,6 +6,7 @@ interface Resource {
 
 interface PaymentMethodEntity {
   type: string;
+  friendlyName: string;
   resources: Resource[];
 }
 

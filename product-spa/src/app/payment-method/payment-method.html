@@ -3,7 +3,7 @@
 
   @for (method of paymentMethods; track method) {
     <div class="payment-method">
-      <p>{{ method.type }}</p>
+      <p>{{ method.friendlyName }}</p>
       <div class="payment-resources">
         @for (res of method.resources; track res) {
           <img [src]="res.url" [alt]="method.type" class="payment-resource-img" />
