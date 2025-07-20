@@ -1,31 +1,37 @@
 .header {
   background-color: #ffe600;
   width: 100%;
-  padding: 10px 0 20px; /* add bottom padding to separate menu */
+  padding: 10px 16px 20px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
 }
 
 .header-content {
-  max-width: 900px;
-  margin: 0 auto; /* center horizontally */
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 12px; /* small space between logo and search bar */
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .logo {
-  height: 78px;
+  height: 64px;
   flex-shrink: 0;
-  padding-right: 18px; /* small padding from search bar */
+  padding-right: 18px;
 }
 
 .search-container {
-  flex: 1; /* take the remaining horizontal space */
-  max-width: 700px;
+  flex: 1;
   display: flex;
   align-items: center;
   background-color: white;
   padding: 6px 12px;
   border-radius: 4px;
+  min-width: 220px;
 }
 
 .search-container input {
@@ -33,6 +39,7 @@
   outline: none;
   flex: 1;
   font-size: 16px;
+  min-width: 0;
 }
 
 .search-icon {
@@ -41,14 +48,18 @@
 }
 
 .nav-menu {
-  max-width: 900px;
+  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
+  box-sizing: border-box;
+  padding-top: 10px;
 }
 
 .nav-menu ul {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
   padding: 0;
