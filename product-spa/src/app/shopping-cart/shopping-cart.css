@@ -1,0 +1,30 @@
+
+
+.quantity-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.stock-count {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.buy-now-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff; /* Bootstrap blue */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.buy-now-btn:hover {
+  background-color: #0056b3;
+}

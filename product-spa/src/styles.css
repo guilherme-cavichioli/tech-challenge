@@ -1,0 +1,8 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #ededed;
+  height: 100%;
+  font-family: 'Source Sans Pro', -apple-system, Roboto, Arial, sans-serif;
+}
+html, body { height: 100%; }

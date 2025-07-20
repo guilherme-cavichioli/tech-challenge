@@ -1,0 +1,53 @@
+<div class="product-container">
+  <div class="top-section">
+    <div class="gallery">
+      <div class="thumbnails">
+        @for (res of product.resources; track res) {
+        <div class="thumb" (click)="changeMainImage(res.url)">
+          <img [src]="res.url" width="44" height="44" [alt]="product.title" />
+        </div>
+        }
+      </div>
+
+      <div class="main-image">
+        <img
+          [src]="selectedImageUrl"
+          [alt]="product.title"
+          class="main-image-img"
+        />
+      </div>
+
+      <div class="product-info">
+        <h1 class="product-title">{{ product.title }}</h1>
+        <div class="rating-container">
+          <span class="rating-value">4.1</span>
+          <div class="stars">
+            @for (star of starArray; track star) {
+            <span class="star">★</span>
+            }
+          </div>
+        </div>
+        <h2 class="product-price">{{ product.price | currency : "USD" }}</h2>
+        <p class="product-color">Color: <strong> {{ product.color }} </strong> </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-section">
+    <div class="features">
+      <h2>Features</h2>
+      <div class="feature-list">
+        @for (feature of featureList; track feature) {
+        <div class="feature-item">
+          <strong>{{ feature.key }}:</strong> {{ feature.value }}
+        </div>
+        }
+      </div>
+    </div>
+
+    <div class="description">
+      <h2>Description</h2>
+      <p>{{ product.description }}</p>
+    </div>
+  </div>
+</div>

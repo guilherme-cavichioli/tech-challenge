@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<div class="main-content">
+  <div class="centralized-container">
+    <div class="page-container">
+      <app-product [product]="product"></app-product>
+
+      <div class="sidebar">
+        <app-card-container>
+          <app-shopping-cart
+            [shoppingCart]="{ hasStock: product.totalStock > 0 }"
+            [product]="product"
+          ></app-shopping-cart>
+        </app-card-container>
+
+        <app-card-container>
+          <app-seller [seller]="product.seller"></app-seller>
+        </app-card-container>
+
+        <app-card-container>
+          <app-payment-method
+            [paymentMethods]="paymentMethods"
+          ></app-payment-method>
+        </app-card-container>
+      </div>
+    </div>
+  </div>
+</div>

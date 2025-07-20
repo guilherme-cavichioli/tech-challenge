@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="header-content">
+    <img src="ml-logo.png" alt="Logo" class="logo" />
+
+    <div class="search-container">
+      <input
+        type="text"
+        placeholder="Search products, brands and much more..."
+      />
+      <mat-icon class="search-icon">search</mat-icon>
+    </div>  
+  </div>
+
+  <nav class="nav-menu">
+    <ul>
+      @for (item of menuItems; track item) {
+      <li>{{ item }}</li>
+      }
+    </ul>
+  </nav>
+</header>

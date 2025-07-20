@@ -1,0 +1,12 @@
+<div>
+  @if (shoppingCart.hasStock) {
+    <p>Stock available</p>
+  }
+
+  <div class="quantity-row">
+    <p>Quantity: 1 unit</p>
+    <div class="stock-count">{{ product.totalStock }}</div>
+  </div>
+
+  <button class="buy-now-btn">Buy now</button>
+</div>

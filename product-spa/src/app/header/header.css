@@ -1,0 +1,56 @@
+.header {
+  background-color: #ffe600;
+  width: 100%;
+  padding: 10px 0 20px; /* add bottom padding to separate menu */
+}
+
+.header-content {
+  max-width: 900px;
+  margin: 0 auto; /* center horizontally */
+  display: flex;
+  align-items: center;
+  gap: 12px; /* small space between logo and search bar */
+}
+
+.logo {
+  height: 78px;
+  flex-shrink: 0;
+  padding-right: 18px; /* small padding from search bar */
+}
+
+.search-container {
+  flex: 1; /* take the remaining horizontal space */
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 16px;
+}
+
+.search-icon {
+  color: gray;
+  cursor: pointer;
+}
+
+.nav-menu {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
