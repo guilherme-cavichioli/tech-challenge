@@ -1,10 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-interface SellerEntity {
-  name: string;
-  subtitle: string;
-  resource: { url: string };
-}
+import { SellerModel } from './seller-model';
 
 @Component({
   selector: 'app-seller',
@@ -12,5 +7,5 @@ interface SellerEntity {
   styleUrls: ['./seller.css']
 })
 export class Seller {
-  @Input() seller!: SellerEntity;
+  @Input() seller!: SellerModel;
 }

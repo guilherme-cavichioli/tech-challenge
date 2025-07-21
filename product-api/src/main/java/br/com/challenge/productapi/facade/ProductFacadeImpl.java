@@ -1,7 +1,6 @@
 package br.com.challenge.productapi.facade;
 
 import br.com.challenge.productapi.entity.ProductEntity;
-import br.com.challenge.productapi.repository.resource.ResourceRepository;
 import br.com.challenge.productapi.service.product.ProductService;
 import br.com.challenge.productapi.service.resource.ResourceService;
 import org.springframework.stereotype.Component;

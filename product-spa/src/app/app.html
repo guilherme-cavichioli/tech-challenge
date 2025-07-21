@@ -1,30 +1,36 @@
 <app-header></app-header>
 
+@if (product; as p) {
 <div class="container">
   <div class="main-content">
     <div class="centralized-container">
       <div class="page-container">
-        <app-product [product]="product"></app-product>
+        <app-product [product]="p"></app-product>
 
         <div class="sidebar">
           <app-card-container>
             <app-shopping-cart
-              [shoppingCart]="{ hasStock: product.totalStock > 0 }"
-              [product]="product"
+              [shoppingCart]="{ hasStock: p.totalStock > 0 }"
+              [product]="p"
             ></app-shopping-cart>
           </app-card-container>
 
           <app-card-container>
-            <app-seller [seller]="product.seller"></app-seller>
+            @if (p!.seller; as seller) {
+            <app-seller [seller]="p!.seller"></app-seller>
+            }
           </app-card-container>
 
           <app-card-container>
+            @if (p.seller!.paymentMethods; as paymentMethods) {
             <app-payment-method
-              [paymentMethods]="product.seller.paymentMethods"
+              [paymentMethods]="paymentMethods"
             ></app-payment-method>
+            }
           </app-card-container>
         </div>
       </div>
     </div>
   </div>
 </div>
+}

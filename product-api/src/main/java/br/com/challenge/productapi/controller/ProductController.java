@@ -2,16 +2,12 @@ package br.com.challenge.productapi.controller;
 
 import br.com.challenge.productapi.entity.ProductEntity;
 import br.com.challenge.productapi.facade.ProductFacade;
-import br.com.challenge.productapi.service.product.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/v1/products")
 public class ProductController {
 
     private final ProductFacade productFacade;
@@ -20,6 +16,7 @@ public class ProductController {
         this.productFacade = productFacade;
     }
 
+    @CrossOrigin(origins = "*") // allow any origin
     @GetMapping("/{id}")
     public ResponseEntity<?> getProduct(@PathVariable Long id) {
         try {
