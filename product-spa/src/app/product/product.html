@@ -2,7 +2,7 @@
   <div class="top-section">
     <div class="gallery">
       <div class="thumbnails">
-        @for (res of product.resources; track res) {
+        @for (res of product.resources; track $index) {
         <div class="thumb" (click)="changeMainImage(res.url)">
           <img [src]="res.url" width="44" height="44" [alt]="product.title" />
         </div>
@@ -22,7 +22,7 @@
         <div class="rating-container">
           <span class="rating-value">{{ product.rating }}</span>
           <div class="stars">
-            @for (star of starArray; track star) {
+            @for (star of starArray; track $index) {
             <span class="star">★</span>
             }
           </div>
@@ -39,7 +39,7 @@
     <div class="features">
       <h2>Features</h2>
       <div class="feature-list">
-        @for (feature of featureList; track feature) {
+        @for (feature of featureList; track $index) {
         <div class="feature-item">
           <strong>{{ feature.key }}:</strong> {{ feature.value }}
         </div>

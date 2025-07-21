@@ -6,33 +6,6 @@
 
 .centralized-container {
   display: flex;
-  justify-content: center; /* horizontally center */
-  padding: 40px 20px;      /* vertical and horizontal padding */
-  min-height: 100vh;       /* optional: full viewport height */
-  box-sizing: border-box;
-}
-
-.page-container {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  max-width: 1200px;  /* limit max width for large screens */
-  width: 100%;
-  flex-wrap: wrap;
-}
-
-app-product {
-  flex: 1 1 60%;
-  min-width: 320px; /* responsive min width */
-}
-
-app-payment-method {
-  flex: 1 1 30%;
-  min-width: 250px; /* responsive min width */
-}
-
-.centralized-container {
-  display: flex;
   justify-content: center;
   padding: 40px 20px;
   min-height: 100vh;
@@ -46,12 +19,22 @@ app-payment-method {
   align-items: flex-start;
   max-width: 1200px;
   width: 100%;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
 
   background-color: #fff; /* white container */
   padding: 24px 32px; /* container padding */
   box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* subtle shadow */
   border-radius: 8px; /* rounded corners */
+}
+
+app-product {
+  flex: 1 1 60%;
+  min-width: 320px; /* responsive min width */
+}
+
+app-payment-method {
+  flex: 1 1 30%;
+  min-width: 250px; /* responsive min width */
 }
 
 .payment-method-wrapper {
@@ -61,17 +44,6 @@ app-payment-method {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* subtle shadow for float effect */
   background-color: #fff;      /* optional: keep white background */
   height: fit-content;         /* shrink-wrap container height */
-}
-
-.page-container {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  max-width: 1200px;
-  width: 100%;
-  flex-wrap: nowrap; /* keep side by side */
-
-  /* Remove direct app-card-container children spacing */
 }
 
 .sidebar {

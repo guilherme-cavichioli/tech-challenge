@@ -1,9 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Product } from './product';
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-describe('Product Component', () => {
+describe('Product Component (Standalone)', () => {
   let component: Product;
   let fixture: ComponentFixture<Product>;
 
@@ -18,13 +17,12 @@ describe('Product Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CommonModule],
-      declarations: [Product],
+      imports: [Product, CommonModule], // import standalone component here
     }).compileComponents();
 
     fixture = TestBed.createComponent(Product);
     component = fixture.componentInstance;
-    component.product = structuredClone(mockProduct); // prevent mutation side-effects
+    component.product = structuredClone(mockProduct);
     fixture.detectChanges();
   });
 
