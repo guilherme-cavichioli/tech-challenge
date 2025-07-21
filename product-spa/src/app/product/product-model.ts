@@ -7,6 +7,7 @@ export interface ProductModel {
   features: string;
   price: number;
   totalStock: number;
+  rating?: string | number;
   resources?: ResourceModel[];
   seller?: SellerModel;
 }

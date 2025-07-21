@@ -4,8 +4,9 @@ package br.com.challenge.productapi.entity;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.math.BigDecimal;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,4 +25,7 @@ public class ProductEntity extends BaseEntity {
     private SellerEntity seller;
     private Integer totalStock;
     private String color;
+    private String ratingStar;
+    private String ratingValue;
+    private String rating;
 }

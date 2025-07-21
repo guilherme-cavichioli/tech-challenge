@@ -20,7 +20,7 @@
       <div class="product-info">
         <h1 class="product-title">{{ product.title }}</h1>
         <div class="rating-container">
-          <span class="rating-value">4.1</span>
+          <span class="rating-value">{{ product.rating }}</span>
           <div class="stars">
             @for (star of starArray; track star) {
             <span class="star">★</span>
@@ -28,7 +28,9 @@
           </div>
         </div>
         <h2 class="product-price">{{ product.price | currency : "USD" }}</h2>
-        <p class="product-color">Color: <strong> {{ product.color }} </strong> </p>
+        <p class="product-color">
+          Color: <strong> {{ product.color }} </strong>
+        </p>
       </div>
     </div>
   </div>

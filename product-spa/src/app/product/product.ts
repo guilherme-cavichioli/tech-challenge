@@ -11,6 +11,7 @@ export class Product {
   @Input() product: any;
   selectedImageUrl: string | undefined;
   featureList: { key: string; value: string }[] = [];
+  starArray: number[] = [];
 
   ngOnInit(): void {
     this.featureList = this.parseFeatures(this.product.features);
@@ -19,6 +20,14 @@ export class Product {
     this.selectedImageUrl = cover
       ? cover.url
       : this.product?.resources?.[0]?.url;
+
+    const ratingValue =
+      typeof this.product.rating === 'string'
+        ? parseFloat(this.product.rating)
+        : this.product.rating;
+
+    let ratingFloat = Math.round(ratingValue ?? 0);
+    this.starArray = Array(ratingFloat).fill(0);
   }
 
   changeMainImage(url: string) {
@@ -52,6 +61,4 @@ export class Product {
 
     return [];
   }
-
-    starArray = Array(4).fill(0);
 }

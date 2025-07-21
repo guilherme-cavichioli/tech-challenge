@@ -135,6 +135,9 @@ public class ProductRepositoryImpl implements ProductRepository {
                 .seller(seller)
                 .price("600.00")
                 .totalStock(10)
+                .ratingStar("4")
+                .ratingValue("4.1")
+                .rating("4.1")
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
                 .build();
