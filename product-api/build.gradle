@@ -2,6 +2,8 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.5.3'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id 'jacoco'
+	id 'org.sonarqube' version '4.4.1.3373'
 }
 
 group = 'br.com.challenge'
@@ -11,6 +13,10 @@ java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
 	}
+}
+
+jar {
+    archiveFileName = 'app.jar'
 }
 
 repositories {
@@ -31,4 +37,25 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+jacoco {
+	toolVersion = "0.8.11"
+}
+
+jacocoTestReport {
+	dependsOn test
+
+	reports {
+		xml.required = true
+		html.required = true
+	}
+
+	def fileFilter = [
+			'**/br/com/challenge/productapi/entity/enums/*.class'
+	]
+
+	classDirectories.setFrom(
+			files(classDirectories.files.collect { fileTree(dir: it, exclude: fileFilter) })
+	)
 }

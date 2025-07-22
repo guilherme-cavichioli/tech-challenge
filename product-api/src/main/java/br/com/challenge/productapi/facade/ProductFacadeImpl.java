@@ -1,6 +1,7 @@
 package br.com.challenge.productapi.facade;
 
 import br.com.challenge.productapi.entity.ProductEntity;
+import br.com.challenge.productapi.exception.ProductNotFoundException;
 import br.com.challenge.productapi.service.product.ProductService;
 import br.com.challenge.productapi.service.resource.ResourceService;
 import org.springframework.stereotype.Component;
@@ -24,7 +25,7 @@ public class ProductFacadeImpl implements ProductFacade {
             resourceService.fetchProductResources(product);
             return product;
         } else {
-            throw new RuntimeException(String.format("Product with id %s not found", id));
+            throw new ProductNotFoundException(String.format("Product with id %s not found", id));
         }
     }
 }

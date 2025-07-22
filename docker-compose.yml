@@ -1,17 +1,45 @@
 services:
-  sonarqube:
-    image: sonarqube:8.9.10-community
-    container_name: sonarqube
+  backend:
+    build:
+      context: ./product-api
+      dockerfile: docker/Dockerfile
+    container_name: product-api-backend
     ports:
-      - "9000:9000"
+      - "8080:8080"
     environment:
-      - SONAR_FORCEAUTHENTICATION=false
-      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
-    volumes:
-      - sonarqube_data:/opt/sonarqube/data
-      - sonarqube_extensions:/opt/sonarqube/extensions
-      - ./devops/conf/sonar.properties:/opt/sonarqube/conf/sonar.properties
+      - SPRING_PROFILES_ACTIVE=prod
+    networks:
+      - product-network
+
+  frontend:
+    build:
+      context: ./product-spa
+      dockerfile: docker/Dockerfile
+    container_name: product-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - product-network
+
+  # sonarqube:
+  #   image: sonarqube:8.9.10-community
+  #   container_name: sonarqube
+  #   ports:
+  #     - "9000:9000"
+  #   environment:
+  #     - SONAR_FORCEAUTHENTICATION=false
+  #     - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+  #   volumes:
+  #     - sonarqube_data:/opt/sonarqube/data
+  #     - sonarqube_extensions:/opt/sonarqube/extensions
+  #     - ./devops/conf/sonar.properties:/opt/sonarqube/conf/sonar.properties
 
 volumes:
   sonarqube_data:
   sonarqube_extensions:
+
+networks:
+  product-network:
+    driver: bridge
